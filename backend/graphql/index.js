@@ -1,5 +1,5 @@
 const {
-    GraphQLObjectType, GraphQLString, GraphQLList, GraphQLBoolean, GraphQLInt, GraphQLSchema,
+    GraphQLObjectType, GraphQLString, GraphQLList, GraphQLFloat, GraphQLBoolean, GraphQLInt, GraphQLSchema,
 } = require('graphql');
 
 // Secondary Types
@@ -54,27 +54,27 @@ const WeatherType = new GraphQLObjectType({
     fields: () => ({
         last_updated_epoch: {type: GraphQLInt},
         last_updated: {type: GraphQLString},
-        temp_c: {type: GraphQLInt},
-        temp_f: {type: GraphQLInt},
-        is_day: {type: GraphQLInt},
+        temp_c: {type: GraphQLFloat},
+        temp_f: {type: GraphQLFloat},
+        is_day: {type: GraphQLFloat},
         condition: {type: ConditionType},
-        wind_mph: {type: GraphQLInt},
-        wind_kph: {type: GraphQLInt},
-        wind_degree: {type: GraphQLInt},
+        wind_mph: {type: GraphQLFloat},
+        wind_kph: {type: GraphQLFloat},
+        wind_degree: {type: GraphQLFloat},
         wind_dir: {type: GraphQLString},
-        pressure_mb: {type: GraphQLInt},
-        pressure_in: {type: GraphQLInt},
-        precip_mm: {type: GraphQLInt},
-        precip_in: {type: GraphQLInt},
-        humidity: {type: GraphQLInt},
-        cloud: {type: GraphQLInt},
-        feelslike_c: {type: GraphQLInt},
-        feelslike_f: {type: GraphQLInt},
-        vis_km: {type: GraphQLInt},
-        vis_miles: {type: GraphQLInt},
-        uv: {type: GraphQLInt},
-        gust_mph: {type: GraphQLInt},
-        gust_kph: {type: GraphQLInt}
+        pressure_mb: {type: GraphQLFloat},
+        pressure_in: {type: GraphQLFloat},
+        precip_mm: {type: GraphQLFloat},
+        precip_in: {type: GraphQLFloat},
+        humidity: {type: GraphQLFloat},
+        cloud: {type: GraphQLFloat},
+        feelslike_c: {type: GraphQLFloat},
+        feelslike_f: {type: GraphQLFloat},
+        vis_km: {type: GraphQLFloat},
+        vis_miles: {type: GraphQLFloat},
+        uv: {type: GraphQLFloat},
+        gust_mph: {type: GraphQLFloat},
+        gust_kph: {type: GraphQLFloat}
     })
 })
 
@@ -93,7 +93,9 @@ const RootQuery = new GraphQLObjectType({
                 }
             },
             async resolve(parent, args, request){
+                console.log("args:", args)
                 if(!args || !args.lat || !args.long) return null;
+                console.log(args)
                 const locationData = (await require('../utils/locations/index').getLocationData(args.lat, args.long)).data.resourceSets[0].resources[0];
                 const data = {
                     address: locationData.address,
@@ -115,10 +117,13 @@ const RootQuery = new GraphQLObjectType({
                 }
             },
             async resolve(parent, args, request){
+                console.log("point", args)
                 if(!args || !args.lat || !args.long) return null;
+                console.log(args)
                 const weatherData = (await require('../utils/weather-api/index').getRealTimeData(args.lat, args.long)).data
-                console.log(weatherData);
-                return weatherData.current
+                console.log(weatherData.current);
+                const res = weatherData.current;
+                return res
             }
         }
     }
