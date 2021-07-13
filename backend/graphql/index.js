@@ -93,9 +93,7 @@ const RootQuery = new GraphQLObjectType({
                 }
             },
             async resolve(parent, args, request){
-                console.log("args:", args)
                 if(!args || !args.lat || !args.long) return null;
-                console.log(args)
                 const locationData = (await require('../utils/locations/index').getLocationData(args.lat, args.long)).data.resourceSets[0].resources[0];
                 const data = {
                     address: locationData.address,
@@ -117,13 +115,10 @@ const RootQuery = new GraphQLObjectType({
                 }
             },
             async resolve(parent, args, request){
-                console.log("point", args)
-                if(!args || !args.lat || !args.long) return null;
                 console.log(args)
-                const weatherData = (await require('../utils/weather-api/index').getRealTimeData(args.lat, args.long)).data
-                console.log(weatherData.current);
-                const res = weatherData.current;
-                return res
+                if(!args || !args.lat || !args.long) return null;
+                const {current} = (await require('../utils/weather-api/index').getRealTimeData(args.lat, args.long)).data
+                return current;
             }
         }
     }

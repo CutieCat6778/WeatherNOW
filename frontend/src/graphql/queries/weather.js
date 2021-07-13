@@ -11,6 +11,7 @@ export const getRealtimeWeather = gql`
             precip_mm
             humidity
             cloud
+            wind_dir
             feelslike_c
             condition{
                 text

@@ -43,11 +43,14 @@ export function Landing({
                     break;
             }
         }
-        $('document').ready(() => {
-            geolocation ? null : getLocation();
-            console.log(geolocation)
-        })
 
+        useEffect(() => {
+            $('document').ready(() => {
+                geolocation ? null : getLocation();
+                console.log(geolocation)
+            })
+        })
+        
         if (geolocation && !geolocation.error) {
             return (
                 <DashboardPage geolocation={geolocation} />
