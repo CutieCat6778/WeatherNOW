@@ -1,7 +1,6 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'; 
-
-import Dashboard from './Dashboard/index.jsx';
+import Loading from '../components/utils/Loading.jsx';
 import Landing from './Landing/index.jsx';
 
 export function Routers(){
