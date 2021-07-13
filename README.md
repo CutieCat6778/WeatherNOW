@@ -18,6 +18,7 @@ The code is kinda hard to understand to you need to try really really hard to un
 If you want to connect to me, then there are some ways to connect
 
 > Discord: < Nub > Cat#0001
+
 > Mail: thinhnguyenhuuhung@gmail.com
 
 ### Thanks you again for supporting my open source project
