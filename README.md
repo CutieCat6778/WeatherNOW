@@ -23,3 +23,5 @@ If you want to connect to me, then there are some ways to connect
 
 ### Thanks you again for supporting my open source project
 Have a good day and happy hacking <3
+
+© All rights reserved by CutieCat6778 2021

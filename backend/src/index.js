@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const mongoose = require('mongoose');
+//const mongoose = require('mongoose');
 // const cookieParser = require('cookie-parser');
 // const session = require('express-session');
 // const MongoStore = require('connect-mongo');
@@ -10,14 +10,14 @@ const { graphqlHTTP } = require('express-graphql');
 const app = new express();
 const GraphQLRootSchema = require('../graphql/index.js');
 
-(async () => {
-    await mongoose.connect(process.env.MONGO_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useCreateIndex: true,
-        useFindAndModify: true
-    })
-})();
+// (async () => {
+//     await mongoose.connect(process.env.MONGO_URI, {
+//         useNewUrlParser: true,
+//         useUnifiedTopology: true,
+//         useCreateIndex: true,
+//         useFindAndModify: true
+//     })
+// })();
 
 app.use(cors({
     origin: process.env.URL,

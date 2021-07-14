@@ -5,12 +5,12 @@ const path = require('path');
 module.exports = {
     entry: './src/index.js',
     output: {
-        path: path.join(__dirname, '/dist'),
+        path: path.join(__dirname, '/build'),
         publicPath: "/",
         filename: "[name].bundle.js"
     },
     devServer: {
-        port: process.env.PORT || 3000,
+        port: process.env.PORT || 8080,
         watchContentBase: true,
         historyApiFallback: true,
         contentBase: './dist',

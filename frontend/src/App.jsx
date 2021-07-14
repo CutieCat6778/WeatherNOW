@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Routers from './pages';
 
 const link = createHttpLink({
-    uri: "http://localhost:3001/graphql",
+    uri: "http://localhost:49160/graphql",
     credentials: 'include'
 })
 
