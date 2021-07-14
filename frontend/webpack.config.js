@@ -32,9 +32,7 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            'process.env': {
-                BACKEND_URL: JSON.stringify(process.env.BACKEND_URL)
-            },
+            'process.env': JSON.stringify(process.env),
         }),
     ],
     optimization: {

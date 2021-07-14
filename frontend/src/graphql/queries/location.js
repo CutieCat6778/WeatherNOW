@@ -9,6 +9,7 @@ export const getLocationData = gql`
                 adminDistrict2
                 countryRegion
                 postalCode
+                locality
             }
             confidence
             point
