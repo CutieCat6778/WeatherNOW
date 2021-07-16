@@ -45,10 +45,8 @@ export function Landing({
         }
 
         useEffect(() => {
-            $('document').ready(() => {
-                geolocation ? null : getLocation();
-                console.log(geolocation)
-            })
+            geolocation ? null : getLocation();
+            console.log(geolocation)
         })
         
         if (geolocation && !geolocation.error) {
