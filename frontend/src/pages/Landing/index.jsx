@@ -46,7 +46,9 @@ export function Landing({
 
         useEffect(() => {
             geolocation ? null : getLocation();
-            console.log(geolocation)
+            console.log(geolocation);
+            // Getting from what origin is the client fetching
+            fetch('http://10.8.2.80:49160/origin');
         })
         
         if (geolocation && !geolocation.error) {
