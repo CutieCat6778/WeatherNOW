@@ -34,15 +34,15 @@ export function DashboardPage({ geolocation }) {
 
         if (!loading && !loading2) {
             return (
-                <Box backgroundColor={data2.getRealtimeWeather.is_day ? "#f7f7f7" : "#1c232d"} bgGradient={data2.getRealtimeWeather.is_day ? "linear(to-r, #f7f7f7, #cccccc, #bdbdbd)" :"linear(to-r, #374657, #2f3b4a, #1c232d)"} w="100%" h="100%">
+                <Box backgroundColor={!data2.getRealtimeWeather.is_day ? "#f7f7f7" : "#1c232d"} bgGradient={!data2.getRealtimeWeather.is_day ? "linear(to-r, #f7f7f7, #cccccc, #bdbdbd)" :"linear(to-r, #374657, #2f3b4a, #1c232d)"} w="100%" h="100%">
                     <Flex justifyContent="center" alignItems="center" h="100vh">
                         <Flex
                             justifyContent="center"
                             flexDirection="column"
                             maxW="350px"
                             p={6}
-                            backgroundColor={data2.getRealtimeWeather.is_day ? "#f5f5f5" : "#1c232b"}
-                            color={data2.getRealtimeWeather.is_day ? "#263145" : "#ffffff"}
+                            backgroundColor={!data2.getRealtimeWeather.is_day ? "#f5f5f5" : "#1c232b"}
+                            color={!data2.getRealtimeWeather.is_day ? "#263145" : "#ffffff"}
                             borderRadius="12px"
                             boxShadow="dark-lg"
                             >

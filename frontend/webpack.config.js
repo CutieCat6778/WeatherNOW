@@ -1,3 +1,4 @@
+require('dotenv').config()
 const webpack = require('webpack');
 const path = require('path');
 
@@ -27,8 +28,14 @@ module.exports = {
                 }
             }
         ],
-        
+
     },
+    plugins: [
+        new webpack.DefinePlugin(
+            {
+                'process.env': JSON.stringify(process.env),
+            }),
+    ],
     optimization: {
         splitChunks: {
             cacheGroups: {
