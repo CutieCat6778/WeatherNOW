@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Routers from './pages';
 
 const link = createHttpLink({
-    uri: "http://10.8.2.80:49160/graphql",
+    uri: "http://10.8.2.80/graphql",
     credentials: 'include'
 })
 
