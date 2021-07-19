@@ -1,16 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Error from '../../components/utils/Error'
-import { Flex, Heading, Text } from '@chakra-ui/layout'
+import { Flex } from '@chakra-ui/layout'
 import { useQuery } from '@apollo/client'
 import { getLocationData } from '../../graphql/queries/location';
 import { getRealtimeWeather } from '../../graphql/queries/weather';
 import Loading from '../../components/utils/Loading';
-import { Avatar, Box } from '@chakra-ui/react';
-import {
-    Stat,
-    StatLabel,
-    StatNumber,
-} from "@chakra-ui/react"
+import AddressFlex from '../../components/_dashboard/address_flex';
+import WeatherFlex from '../../components/_dashboard/weather_flex';
+import { Divider } from '@chakra-ui/react';
 
 export function DashboardPage({ geolocation }) {
     try {
@@ -37,59 +34,20 @@ export function DashboardPage({ geolocation }) {
 
         if (!loading && !loading2) {
             return (
-                <Box p={6}>
-                    <Heading textAlign="center">
-                        Weather NOW
-                    </Heading>
-                    <Flex justifyContent="center" p={6} display={{ base: "block", sm: "flex" }}>
-                        <Flex flexDirection="column" p={4}>
-                            <Heading>
-                                {data.getLocationData.address.addressLine}
-                            </Heading>
-                            <Text>
-                                {data.getLocationData.address.locality}
-                            </Text>
-                            <Text>
-                                {data.getLocationData.address.adminDistrict2}, {data.getLocationData.address.postalCode}
-                            </Text>
-                            <Text>
-                                {data.getLocationData.address.adminDistrict}
-                            </Text>
-                            <Text>
-                                {data.getLocationData.address.countryRegion}
-                            </Text>
-                        </Flex>
-                        <Flex flexDirection="column" backgroundColor="#a0aec0" ml={4} p={4} textAlign="right">
-                            <Heading textAlign="right">
-                                {config.temp == 1 ? data2.getRealtimeWeather.temp_c + "°C" : data2.getRealtimeWeather.temp_f + "°F"}
-                            </Heading>
-                            <Flex alignItems="center" justifyContent="right">
-                                <Avatar src={data2.getRealtimeWeather.condition.icon} />
-                                <Heading fontSize="2rem">
-                                    {data2.getRealtimeWeather.condition.text}
-                                </Heading>
-                            </Flex>
-                            <Flex flexDirection="column" textAlign="right">
-                                <Flex flexDirection="row" justifyContent="space-around">
-                                    <Stat>
-                                        <StatLabel>Wind</StatLabel> <StatNumber fontWeight="600">{data2.getRealtimeWeather.wind_kph}km/h</StatNumber>
-                                    </Stat>
-                                    <Stat>
-                                        <StatLabel>Cloud</StatLabel> <StatNumber fontWeight="600">{data2.getRealtimeWeather.cloud}%</StatNumber>
-                                    </Stat>
-                                </Flex>
-                                <Flex justifyContent="space-around">
-                                    <Stat>
-                                        <StatLabel>Humidity</StatLabel> <StatNumber fontWeight="600">{data2.getRealtimeWeather.humidity}%</StatNumber>
-                                    </Stat>
-                                    <Stat>
-                                        <StatLabel>Visibility</StatLabel> <StatNumber fontWeight="600">{data2.getRealtimeWeather.vis_km}km</StatNumber>
-                                    </Stat>
-                                </Flex>
-                            </Flex>
-                        </Flex>
-                    </Flex>
-                </Box>
+                <Flex 
+                    justifyContent="center" 
+                    flexDirection="column" 
+                    maxW="300px" 
+                    p={6} 
+                    backgroundColor={data2.getRealtimeWeather.is_day ? "#fffef0" : "#1c232b"}
+                    color={data2.getRealtimeWeather.is_day ? "#263145" : "#ffffff"}
+                    borderRadius="12px"
+                    m={12}
+                    boxShadow="xl">
+                    <WeatherFlex data={data2.getRealtimeWeather} config={config}/>
+                    <Divider/>
+                    <AddressFlex data={data.getLocationData}/>
+                </Flex>
             )
         } else if (loading || loading2) {
             return (<Loading />)

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Error from '../../components/utils/Error'
-import { Flex, Heading, Text } from '@chakra-ui/layout'
-import { Box, Button } from '@chakra-ui/react';
-import { getLocation } from 'graphql';
+import { Heading, Text } from '@chakra-ui/layout'
+import { Button, Box } from '@chakra-ui/react';
 import { DashboardPage } from '../Dashboard';
 
 export function Landing({
@@ -62,13 +61,13 @@ export function Landing({
         return (
             <Box>
                 <Heading>
-                    What is weather now?
+                    Redirecting
                 </Heading>
                 <Text>
-                    Your question will be answered, if you click on this button
+                    Please allow the website to access your GPS, so it can get the most accurate weather location data.
                 </Text>
                 <Button onClick={getLocation}>
-                    Get started
+                    Continue
                 </Button>
             </Box>
         )
