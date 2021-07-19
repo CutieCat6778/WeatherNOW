@@ -25,7 +25,7 @@ export function PopoverMobile({ setConfig, config }) {
                     <PopoverBody>
                         <Flex mb={6}>
                             <StatLabel mr={4}>Dark Mode</StatLabel>
-                            <Switch onChange={SwitchMode}/>
+                            <Switch isChecked={config.day == 1 ? false : true} onChange={SwitchMode}/>
                         </Flex>
                         <Flex justifyContent="space-between">
                             <Stack>
