@@ -56,7 +56,7 @@ const WeatherType = new GraphQLObjectType({
         last_updated: {type: GraphQLString},
         temp_c: {type: GraphQLFloat},
         temp_f: {type: GraphQLFloat},
-        is_day: {type: GraphQLFloat},
+        is_day: {type: GraphQLInt},
         condition: {type: ConditionType},
         wind_mph: {type: GraphQLFloat},
         wind_kph: {type: GraphQLFloat},

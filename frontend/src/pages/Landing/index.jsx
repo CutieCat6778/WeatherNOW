@@ -53,6 +53,7 @@ export function Landing({
                 <DashboardPage geolocation={geolocation} />
             )
         } else if (geolocation && geolocation.error) {
+            console.log(geolocation)
             return (
                 <Error error={new Error(geolocation.error)} />
             )

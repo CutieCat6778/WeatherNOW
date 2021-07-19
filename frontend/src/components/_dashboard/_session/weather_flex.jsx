@@ -9,7 +9,7 @@ import {
     Box,
     Spacer
 } from "@chakra-ui/react"
-import Error from '../utils/Error';
+import Error from '../../utils/Error';
 
 export function WeatherFlex({ data, config }) {
     try{
@@ -32,7 +32,7 @@ export function WeatherFlex({ data, config }) {
                 <Flex flexDirection="column" textAlign="right">
                     <Flex flexDirection="row" justifyContent="space-around">
                         <Stat>
-                            <StatLabel>Wind</StatLabel> <StatNumber fontWeight="600">{data.wind_kph}km/h</StatNumber>
+                            <StatLabel>Wind</StatLabel> <StatNumber fontWeight="600">{config.dist ? data.wind_kph + " km/h" : data.wind_mph + " mi/h"}</StatNumber>
                         </Stat>
                         <Stat>
                             <StatLabel>Cloud</StatLabel> <StatNumber fontWeight="600">{data.cloud}%</StatNumber>
@@ -43,7 +43,7 @@ export function WeatherFlex({ data, config }) {
                             <StatLabel>Humidity</StatLabel> <StatNumber fontWeight="600">{data.humidity}%</StatNumber>
                         </Stat>
                         <Stat>
-                            <StatLabel>Visibility</StatLabel> <StatNumber fontWeight="600">{data.vis_km}km</StatNumber>
+                            <StatLabel>Visibility</StatLabel> <StatNumber fontWeight="600">{config.dist ? data.vis_km + " Km" : data.vis_miles + " Miles"}</StatNumber>
                         </Stat>
                     </Flex>
                 </Flex>

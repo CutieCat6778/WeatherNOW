@@ -5,21 +5,18 @@ export const getRealtimeWeather = gql`
         getRealtimeWeather(lat: $lat, long: $long){
             last_updated
             temp_c
+            temp_f
             is_day
             wind_kph
-            pressure_mb
-            precip_mm
+            wind_mph
             humidity
             cloud
-            wind_dir
-            feelslike_c
             condition{
                 text
                 icon
             }
             vis_km
-            uv
-            gust_kph
+            vis_miles
         }
     }
 `
