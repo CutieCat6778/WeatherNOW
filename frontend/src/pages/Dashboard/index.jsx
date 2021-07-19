@@ -7,7 +7,7 @@ import { getRealtimeWeather } from '../../graphql/queries/weather';
 import Loading from '../../components/utils/Loading';
 import AddressFlex from '../../components/_dashboard/address_flex';
 import WeatherFlex from '../../components/_dashboard/weather_flex';
-import { Divider } from '@chakra-ui/react';
+import { Box, Divider } from '@chakra-ui/react';
 
 export function DashboardPage({ geolocation }) {
     try {
@@ -34,20 +34,25 @@ export function DashboardPage({ geolocation }) {
 
         if (!loading && !loading2) {
             return (
-                <Flex 
-                    justifyContent="center" 
-                    flexDirection="column" 
-                    maxW="300px" 
-                    p={6} 
-                    backgroundColor={data2.getRealtimeWeather.is_day ? "#fffef0" : "#1c232b"}
-                    color={data2.getRealtimeWeather.is_day ? "#263145" : "#ffffff"}
-                    borderRadius="12px"
-                    m={12}
-                    boxShadow="xl">
-                    <WeatherFlex data={data2.getRealtimeWeather} config={config}/>
-                    <Divider/>
-                    <AddressFlex data={data.getLocationData}/>
-                </Flex>
+                <Box backgroundColor={data2.getRealtimeWeather.is_day ? "#f7f7f7" : "#1c232d"} bgGradient={data2.getRealtimeWeather.is_day ? "linear(to-r, #f7f7f7, #cccccc, #bdbdbd)" :"linear(to-r, #374657, #2f3b4a, #1c232d)"} w="100%" h="100%">
+                    <Flex justifyContent="center" alignItems="center" h="100vh">
+                        <Flex
+                            justifyContent="center"
+                            flexDirection="column"
+                            maxW="350px"
+                            p={6}
+                            backgroundColor={data2.getRealtimeWeather.is_day ? "#f5f5f5" : "#1c232b"}
+                            color={data2.getRealtimeWeather.is_day ? "#263145" : "#ffffff"}
+                            borderRadius="12px"
+                            boxShadow="dark-lg"
+                            >
+                            <WeatherFlex data={data2.getRealtimeWeather} config={config} />
+                            <Divider colorScheme="facebook" />
+                            <AddressFlex data={data.getLocationData} />
+                        </Flex>
+                    </Flex>
+                </Box>
+
             )
         } else if (loading || loading2) {
             return (<Loading />)

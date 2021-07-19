@@ -16,7 +16,7 @@ export function WeatherFlex({ data, config }) {
         return (
             <Flex flexDirection="column" ml={4} p={4} textAlign="right">
                 <Flex>
-                    <Image src={data.condition.icon} alt="Weather condition icon"/>
+                    <Image src={data.condition.icon} alt="Weather condition icon" boxSize="100px"/>
                     <Spacer/>
                     <Box textAlign="right">
                         <Heading textAlign="right">
