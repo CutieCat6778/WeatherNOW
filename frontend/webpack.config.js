@@ -10,7 +10,7 @@ module.exports = {
         filename: "[name].bundle.js"
     },
     devServer: {
-        port: process.env.PORT || 8080,
+        port: process.env.PORT || 80,
         watchContentBase: true,
         historyApiFallback: true,
         contentBase: './dist',

@@ -6,7 +6,7 @@ import React from 'react';
 
 export function AddressFlex({ data }) {
     return (
-        <Flex paddingX={4} paddingY={2} justifyContent="space-between">
+        <Flex paddingY={2} justifyContent="space-between" fontSize={14}>
             {data.address.locality}
             <Spacer/>
             {data.address.countryRegion}

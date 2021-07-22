@@ -11,7 +11,7 @@ export function PopoverMobile({ setConfig, config }) {
     }
 
     return (
-        <Flex position="absolute" h="100vh" justifyContent="center" alignItems="center" p={2} flexDir="column" display={{base: "flex", md: "none"}}>
+        <Flex position="absolute" h="100vh" justifyContent="left" alignItems="top" p={2} flexDir="column" display={{base: "flex", md: "none"}}>
             <Popover autoFocus={false}>
                 <PopoverTrigger>
                     <HamburgerIcon boxSize={8} mt={4} color={config.day ? "gray.800" : "white"} />
