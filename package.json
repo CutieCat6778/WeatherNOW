@@ -4,6 +4,7 @@
   "description": "A weather app",
   "main": "startup.sh",
   "scripts": {
+    "heroku-postbuild": "chmod +x ./startup.sh",
     "backend": "./startup.sh backend"
   },
   "repository": {
