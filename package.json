@@ -1,0 +1,19 @@
+{
+  "name": "weather-app",
+  "version": "0.0.1",
+  "description": "A weather app",
+  "main": "startup.sh",
+  "scripts": {
+    "backend": "./startup.sh backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CutieCat6778/weather-app.git"
+  },
+  "author": "",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/CutieCat6778/weather-app/issues"
+  },
+  "homepage": "https://github.com/CutieCat6778/weather-app#readme"
+}
