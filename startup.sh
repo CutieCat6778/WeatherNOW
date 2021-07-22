@@ -52,6 +52,9 @@ elif [[ "$1" == "delete" ]]; then
 
     echo "--- DELETING OLD IMAGES ---"
     docker rmi -f weatherapp/backend weatherapp/frontend
+elif [[ "$1" == "backend" ]]; then
+    cd backend
+    node ./bin/www
 else 
     echo "INVALID OPTIONS"
 fi
