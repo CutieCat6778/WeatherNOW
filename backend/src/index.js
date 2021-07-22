@@ -20,13 +20,13 @@ const GraphQLRootSchema = require('../graphql/index.js');
 // })();
 
 app.use(cors({
-    origin: process.env.LOCAL ? "http://localhost:8080" : "https://10.8.2.80",
+    origin: process.env.LOCAL ? "http://localhost:8080" : "https://weathernow.gq",
     credentials: true
 }))
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Credentials', true);
-    res.header('Access-Control-Allow-Origin', process.env.LOCAL ? "http://localhost:8080" : "https://10.8.2.80");
+    res.header('Access-Control-Allow-Origin', process.env.LOCAL ? "http://localhost:8080" : "https://weathernow.gq");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
     if ('OPTIONS' == req.method) {
