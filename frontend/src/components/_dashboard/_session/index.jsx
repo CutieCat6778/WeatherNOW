@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import AddressFlex from './address_flex';
 import WeatherFlex from './weather_flex';
-import { Box, Divider, Spacer } from '@chakra-ui/react';
+//const WeatherFlex = lazy(() => import('./weather_flex'));
+//const AddressFlex = lazy(() => import('./address_flex'));
+import { Box, Divider } from '@chakra-ui/react';
 import { Flex } from '@chakra-ui/layout'
 import Footer from '../_footer';
+//import Loading from '../../utils/Loading';
 
 export function Session({ data, data2, config }) {
     return (

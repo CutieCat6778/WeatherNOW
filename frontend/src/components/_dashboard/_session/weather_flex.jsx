@@ -1,22 +1,25 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import {
     Stat,
     StatLabel,
     StatNumber,
     Heading,
-    Image,
     Flex,
     Box,
     Spacer
 } from "@chakra-ui/react"
 import Error from '../../utils/Error';
+import Loading from '../../utils/Loading';
+const Image = lazy(() => import('./_image'));
 
 export function WeatherFlex({ data, config }) {
     try{
         return (
             <Flex flexDirection="column" ml={4} p={4} textAlign="right">
                 <Flex>
-                    <Image src={data.condition.icon} alt="Weather condition icon" boxSize="100px"/>
+                    <Suspense fallback={<Loading/>}>
+                        <Image src={data.condition.icon}/>
+                    </Suspense>
                     <Spacer/>
                     <Box textAlign="right">
                         <Heading textAlign="right">

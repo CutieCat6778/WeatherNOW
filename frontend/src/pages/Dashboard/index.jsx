@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, lazy } from 'react'
 import Error from '../../components/utils/Error'
 import { useQuery } from '@apollo/client'
 import { getLocationData } from '../../graphql/queries/location';
 import { getRealtimeWeather } from '../../graphql/queries/weather';
 import Loading from '../../components/utils/Loading';
 import { Grid } from '@chakra-ui/react';
-import Session from '../../components/_dashboard/_session';
-import Navigation from '../../components/_dashboard/_navigation';
+const Session = lazy(() => import('../../components/_dashboard/_session'));
+const Navigation = lazy(() => import('../../components/_dashboard/_navigation'));
 
 
 export function DashboardPage({ geolocation }) {
@@ -35,8 +35,12 @@ export function DashboardPage({ geolocation }) {
             console.log(config)
             return (
                 <Grid w="100%">
-                    <Navigation setConfig={setConfig} config={config}/>
-                    <Session data={data} data2={data2} config={config}/>
+                    <React.Suspense fallback={<Loading/>}>
+                        <Navigation setConfig={setConfig} config={config}/>
+                    </React.Suspense>
+                    <React.Suspense fallback={<Loading/>}>
+                        <Session data={data} data2={data2} config={config}/>
+                    </React.Suspense>
                 </Grid>
             )
         } else if (loading || loading2) {
