@@ -5,8 +5,7 @@ You want to know the weather now? But you are lazy to click some more button to 
 
 # Current status
 
-The Project is still in development process, it is not finished. Me (the developer) keep trying to update the project as fast as prossible and they will be finished soon.
-But finish doesn't mean that I won't release any new updates.
+The project is not getting support anymore, there are a lots of bug in it (feel free to debug). I have ended this project not because it has a lots of bug. I just do this project to train my skills and learn more from it. I have reached my goals in this project, so I will keep as an archive.
 
 # Is this open source?
 
@@ -17,9 +16,7 @@ The code is kinda hard to understand to you need to try really really hard to un
 
 If you want to connect to me, then there are some ways to connect
 
-> Discord: < Nub > Cat#0001
-
-> Mail: thinhnguyenhuuhung@gmail.com
+> Mail: thinh@thinh.tech
 
 ### Thanks you again for supporting my open source project
 Have a good day and happy hacking <3
